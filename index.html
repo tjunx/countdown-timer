@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon Countdown</title>
+  <title>Outpost Countdown</title>
   <style>
     /* Arboria font import */
     @font-face {
@@ -14,48 +14,30 @@
     }
 
     body {
-      background-color: #111;
-      color: #fff;
-      font-family: 'Arboria', sans-serif;
       margin: 0;
       padding: 0;
+      font-family: 'Arboria', sans-serif;
+      background: url('IMG_4179.PNG') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
       text-align: center;
       overflow: hidden;
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      padding: 2rem;
-      box-sizing: border-box;
-      position: relative;
-    }
-
-    #logo {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 100px;
-      height: auto;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      letter-spacing: 1px;
-    }
-
     #countdown {
       display: flex;
-      gap: 2rem;
+      justify-content: center;
+      gap: 3rem;
       font-size: 2.5rem;
       font-weight: bold;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0); /* Transparent background inside capsule */
+      border-radius: 50px;
     }
 
     .time-unit {
@@ -66,53 +48,57 @@
 
     .label {
       font-size: 1rem;
-      margin-top: 0.5rem;
-      color: #aaa;
+      margin-top: 0.3rem;
+      color: #ccc;
     }
 
     #event-date {
       font-size: 1.2rem;
-      color: #ccc;
+      color: #eee;
+      margin-top: 1.5rem;
+    }
+
+    #logo {
       margin-top: 1rem;
+      width: 200px;
+      height: auto;
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
       #countdown {
+        flex-direction: column;
         gap: 1rem;
       }
+
       #logo {
-        width: 80px;
+        width: 150px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img id="logo" src="Final logo.PNG" alt="Outpost Climbing Logo">
-    <h1>Coming soon...</h1>
-    <div id="countdown">
-      <div class="time-unit">
-        <span id="days">0</span>
-        <span class="label">Days</span>
-      </div>
-      <div class="time-unit">
-        <span id="hours">0</span>
-        <span class="label">Hours</span>
-      </div>
-      <div class="time-unit">
-        <span id="minutes">0</span>
-        <span class="label">Minutes</span>
-      </div>
-      <div class="time-unit">
-        <span id="seconds">0</span>
-        <span class="label">Seconds</span>
-      </div>
+  <div id="countdown">
+    <div class="time-unit">
+      <span id="days">0</span>
+      <span class="label">Days</span>
     </div>
-    <div id="event-date">1 September 2025</div>
+    <div class="time-unit">
+      <span id="hours">0</span>
+      <span class="label">Hours</span>
+    </div>
+    <div class="time-unit">
+      <span id="minutes">0</span>
+      <span class="label">Minutes</span>
+    </div>
+    <div class="time-unit">
+      <span id="seconds">0</span>
+      <span class="label">Seconds</span>
+    </div>
   </div>
+
+  <div id="event-date">1 September 2025</div>
+
+  <img id="logo" src="IMG_4178.PNG" alt="Outpost Climbing Logo"/>
 
   <script>
     const countdown = () => {
