@@ -9,105 +9,160 @@
       font-family: 'Arboria';
       src: url('https://cdn.jsdelivr.net/gh/FontsArena/arboria/Arboria-Regular.woff2') format('woff2');
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       font-family: 'Arboria', sans-serif;
       background: url('IMG_4178.PNG') no-repeat center center;
       background-size: cover;
-      height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      color: #fff;
+      color: white;
       text-align: center;
+      height: 100vh;
+      overflow: hidden;
     }
-    h1 {
-      font-size: 3rem;
-      margin: 0 0 1rem;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 2rem;
     }
-    #countdown-container {
-      position: relative;
-      width: 80%;
-      max-width: 1200px;
-      aspect-ratio: 3 / 1;
+
+    h1.title {
+      font-size: 3.5vw;
+      margin-bottom: 2.5rem;
+      font-weight: bold;
+    }
+
+    #capsule {
+      width: 90vw;
+      max-width: 1100px;
+      height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: rgba(0, 0, 0, 0); /* transparent to match neon capsule */
     }
+
     #countdown {
       display: flex;
-      justify-content: center;
-      gap: 2%;
-      width: 100%;
-      font-size: 3rem;
-      font-weight: bold;
-      color: #fff;
-    }
-    .time-unit {
-      flex: 1;
-      display: flex; flex-direction: column;
+      justify-content: space-around;
       align-items: center;
+      width: 100%;
+      font-size: 3.5vw;
+      font-weight: bold;
     }
-    .label { font-size: 1rem; color: #ccc; margin-top: 0.3rem; }
+
+    .time-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+
+    .label {
+      font-size: 1.2vw;
+      color: #ccc;
+      margin-top: 0.5rem;
+      font-weight: normal;
+    }
+
     #event-date {
-      font-size: 1.2rem;
-      color: #eee;
-      margin-top: 1rem;
+      margin-top: 2rem;
+      font-size: 1.8vw;
+      font-weight: bold;
     }
+
     #logo {
-      margin-top: 1rem;
-      width: 300px;
+      margin-top: 1.5rem;
+      width: 250px;
+      max-width: 40vw;
+      height: auto;
     }
+
     @media (max-width: 768px) {
-      h1 { font-size: 2.5rem; }
-      #countdown { font-size: 2rem; }
-      #logo { width: 200px; }
+      h1.title {
+        font-size: 6vw;
+      }
+
+      #countdown {
+        font-size: 6vw;
+      }
+
+      .label {
+        font-size: 2vw;
+      }
+
+      #event-date {
+        font-size: 3vw;
+      }
+
+      #logo {
+        width: 180px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Coming soon...</h1>
-  <div id="countdown-container">
-    <div id="countdown">
-      <div class="time-unit">
-        <span id="days">0</span>
-        <span class="label">Days</span>
-      </div>
-      <div class="time-unit">
-        <span id="hours">0</span>
-        <span class="label">Hours</span>
-      </div>
-      <div class="time-unit">
-        <span id="minutes">0</span>
-        <span class="label">Minutes</span>
-      </div>
-      <div class="time-unit">
-        <span id="seconds">0</span>
-        <span class="label">Seconds</span>
+  <div class="content">
+    <h1 class="title">Coming soon...</h1>
+
+    <div id="capsule">
+      <div id="countdown">
+        <div class="time-unit">
+          <span id="days">0</span>
+          <span class="label">Days</span>
+        </div>
+        <div class="time-unit">
+          <span id="hours">0</span>
+          <span class="label">Hours</span>
+        </div>
+        <div class="time-unit">
+          <span id="minutes">0</span>
+          <span class="label">Minutes</span>
+        </div>
+        <div class="time-unit">
+          <span id="seconds">0</span>
+          <span class="label">Seconds</span>
+        </div>
       </div>
     </div>
+
+    <div id="event-date">1 September 2025</div>
+    <img id="logo" src="IMG_4179.PNG" alt="Outpost Climbing Logo"/>
   </div>
-  <div id="event-date">1 September 2025</div>
-  <img id="logo" src="IMG_4179.PNG" alt="Outpost Climbing Logo"/>
+
   <script>
-    const update = () => {
-      const now = Date.now();
-      const end = new Date("September 1, 2025 00:00:00").getTime();
-      const diff = end - now;
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const target = new Date("September 1, 2025 00:00:00").getTime();
+      const diff = target - now;
+
       if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "<span style='font-size:2rem;'>It's time!</span>";
+        document.getElementById("countdown").innerHTML = "<span style='font-size: 2rem;'>It's time!</span>";
         return;
       }
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      document.getElementById("days").innerText = d;
-      document.getElementById("hours").innerText = h;
-      document.getElementById("minutes").innerText = m;
-      document.getElementById("seconds").innerText = s;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
     };
-    setInterval(update, 1000);
-    update();
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 </body>
 </html>
