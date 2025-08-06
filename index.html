@@ -25,7 +25,7 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
     }
 
@@ -34,13 +34,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      height: 100%;
       width: 100%;
-      padding: 2vh 2vw;
+      padding-top: 12vh; /* Pushes all content downward */
     }
 
     h1.title {
-      font-size: 4vw;
+      font-size: 5vw;
       margin-bottom: 3vh;
       font-weight: bold;
     }
@@ -52,7 +51,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 4vh;
+      margin-bottom: 5vh;
     }
 
     #countdown {
@@ -60,7 +59,7 @@
       justify-content: space-between;
       align-items: center;
       width: 70%;
-      font-size: 3.5vw;
+      font-size: 4.5vw;
       font-weight: bold;
     }
 
@@ -72,7 +71,7 @@
     }
 
     .label {
-      font-size: 1.2vw;
+      font-size: 1.5vw;
       color: #ccc;
       margin-top: 0.5rem;
       font-weight: normal;
@@ -80,38 +79,38 @@
 
     #event-date {
       margin-top: 4vh;
-      font-size: 2vw;
+      font-size: 2.5vw;
       font-weight: bold;
     }
 
     #logo {
-      margin-top: 2vh;
-      width: 250px;
+      margin-top: 3vh;
+      width: 260px;
       max-width: 40vw;
       height: auto;
     }
 
     @media (max-width: 768px) {
       h1.title {
-        font-size: 6vw;
+        font-size: 7vw;
       }
 
       #countdown {
-        font-size: 6vw;
+        font-size: 6.5vw;
         width: 90%;
       }
 
       .label {
-        font-size: 2vw;
+        font-size: 2.5vw;
       }
 
       #event-date {
-        font-size: 3vw;
+        font-size: 4vw;
         margin-top: 3vh;
       }
 
       #logo {
-        width: 180px;
+        width: 200px;
       }
     }
   </style>
