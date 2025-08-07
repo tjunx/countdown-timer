@@ -45,11 +45,12 @@
 
     .title {
       position: absolute;
-      bottom: calc(50% + 200px);
+      bottom: calc(50% + 220px);
       left: 50%;
       transform: translateX(-50%);
       font-size: 12rem;
       font-weight: bold;
+      white-space: nowrap;
     }
 
     #capsule {
@@ -94,9 +95,9 @@
 
     #logo {
       position: absolute;
-      top: calc(50% + 240px); /* shifted closer to date */
+      top: calc(50% + 240px); /* MOVED UP */
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, 0%);
       width: 480px;
       height: auto;
     }
@@ -104,7 +105,7 @@
     @media (max-width: 1920px) {
       .title {
         font-size: 6rem;
-        bottom: calc(50% + 170px);
+        bottom: calc(50% + 180px);
       }
 
       #countdown {
@@ -121,8 +122,8 @@
       }
 
       #logo {
-        width: 320px;
-        top: calc(50% + 220px);
+        width: 300px;
+        top: calc(50% + 200px);
       }
     }
   </style>
