@@ -48,7 +48,7 @@
       bottom: calc(50% + 220px);
       left: 50%;
       transform: translateX(-50%);
-      font-size: 30rem;
+      font-size: 12rem;
       font-weight: bold;
       white-space: nowrap;
     }
@@ -66,7 +66,7 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      font-size: 20rem;
+      font-size: 8rem;
       font-weight: bold;
     }
 
@@ -78,7 +78,7 @@
     }
 
     .label {
-      font-size: 18rem;
+      font-size: 2.5rem;
       color: #ccc;
       margin-top: 1rem;
       font-weight: normal;
@@ -86,22 +86,21 @@
 
     #event-date {
       position: absolute;
-      top: calc(50% + 300px);
+      top: 1250px; /* Fixed pixel position for large screen */
       left: 50%;
       transform: translateX(-50%);
-      font-size: 10rem;
+      font-size: 6rem;
       font-weight: bold;
     }
 
     #logo {
       position: absolute;
-      top: calc(50% + 240px); /* MOVED UP */
+      top: 1340px; /* Positioned below the event-date line */
       left: 50%;
       transform: translate(-50%, 0%);
-      width: 580px;
+      width: 480px;
       height: auto;
     }
-    
   </style>
 </head>
 <body>
@@ -162,6 +161,3 @@
   </script>
 </body>
 </html>
-
-
-
