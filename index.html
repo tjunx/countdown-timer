@@ -10,6 +10,10 @@
       src: url('https://cdn.jsdelivr.net/gh/FontsArena/arboria/Arboria-Regular.woff2') format('woff2');
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -26,20 +30,25 @@
       justify-content: center;
     }
 
-    .content {
+    .container {
+      position: relative;
       width: 100%;
       height: 100%;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding-top: 12vh;
     }
 
-    h1.title {
+    .center-anchor {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .title {
+      position: absolute;
+      bottom: calc(50% + 170px);
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 5rem;
-      margin-bottom: 3vh;
       font-weight: bold;
     }
 
@@ -49,7 +58,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 5vh;
     }
 
     #countdown {
@@ -76,20 +84,27 @@
     }
 
     #event-date {
-      margin-top: 4vh;
+      position: absolute;
+      top: calc(50% + 160px);
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 2.5rem;
       font-weight: bold;
     }
 
     #logo {
-      margin-top: 2.5vh;
+      position: absolute;
+      top: calc(50% + 250px);
+      left: 50%;
+      transform: translateX(-50%);
       width: 300px;
       height: auto;
     }
 
     @media (max-width: 1920px) {
-      h1.title {
+      .title {
         font-size: 3rem;
+        bottom: calc(50% + 150px);
       }
       #countdown {
         font-size: 2.5rem;
@@ -99,34 +114,38 @@
       }
       #event-date {
         font-size: 1.5rem;
+        top: calc(50% + 130px);
       }
       #logo {
         width: 200px;
+        top: calc(50% + 200px);
       }
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <h1 class="title">Coming soon...</h1>
+  <div class="container">
+    <div class="title">Coming soon...</div>
 
-    <div id="capsule">
-      <div id="countdown">
-        <div class="time-unit">
-          <span id="days">0</span>
-          <span class="label">Days</span>
-        </div>
-        <div class="time-unit">
-          <span id="hours">0</span>
-          <span class="label">Hours</span>
-        </div>
-        <div class="time-unit">
-          <span id="minutes">0</span>
-          <span class="label">Minutes</span>
-        </div>
-        <div class="time-unit">
-          <span id="seconds">0</span>
-          <span class="label">Seconds</span>
+    <div class="center-anchor">
+      <div id="capsule">
+        <div id="countdown">
+          <div class="time-unit">
+            <span id="days">0</span>
+            <span class="label">Days</span>
+          </div>
+          <div class="time-unit">
+            <span id="hours">0</span>
+            <span class="label">Hours</span>
+          </div>
+          <div class="time-unit">
+            <span id="minutes">0</span>
+            <span class="label">Minutes</span>
+          </div>
+          <div class="time-unit">
+            <span id="seconds">0</span>
+            <span class="label">Seconds</span>
+          </div>
         </div>
       </div>
     </div>
